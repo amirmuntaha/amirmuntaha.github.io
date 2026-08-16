@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
@@ -76,6 +76,12 @@
             color: #fff;
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
         .nav-link {
             color: #737373;
             transition: color 0.2s;
@@ -88,6 +94,37 @@
         .nav-link svg {
             width: 20px;
             height: 20px;
+        }
+
+        /* Language Toggle */
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            background: #1a1a1a;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #262626;
+        }
+
+        .lang-btn {
+            padding: 4px 10px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #737373;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            letter-spacing: 0.02em;
+        }
+
+        .lang-btn.active {
+            background: #fff;
+            color: #0a0a0a;
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: #e5e5e5;
         }
 
         /* Hero */
@@ -209,36 +246,42 @@
     <nav>
         <div class="container">
             <a href="/" class="logo">Amir Muntaha</a>
-            <a href="https://github.com/amirmuntaha" target="_blank" rel="noopener noreferrer" class="nav-link" aria-label="GitHub">
-                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-            </a>
+            <div class="nav-right">
+                <div class="lang-toggle">
+                    <button class="lang-btn active" id="btn-id" onclick="setLang('id')">ID</button>
+                    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+                </div>
+                <a href="https://github.com/amirmuntaha" target="_blank" rel="noopener noreferrer" class="nav-link" aria-label="GitHub">
+                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <h1>Hey, I'm Amir ⚡</h1>
-            <p>I build useful web tools. Simple, fast, and free to use.</p>
+            <h1 id="hero-title">Hai, saya Amir ⚡</h1>
+            <p id="hero-desc">Saya membuat alat web yang berguna. Sederhana, cepat, dan gratis.</p>
         </div>
     </section>
 
     <!-- Projects -->
     <section class="projects">
         <div class="container">
-            <p class="section-label">Projects</p>
+            <p class="section-label" id="section-label">Proyek</p>
             <div class="project-list">
                 <a href="https://amirmuntaha.github.io/loan_calculator/" class="project-item">
                     <div class="project-info">
-                        <span class="project-name">Loan Amortization Calculator</span>
-                        <span class="project-desc">Simulate payments, view charts, export to CSV</span>
+                        <span class="project-name" id="proj1-name">Kalkulator Amortisasi Pinjaman</span>
+                        <span class="project-desc" id="proj1-desc">Simulasi pembayaran, lihat grafik, ekspor ke CSV</span>
                     </div>
                     <span class="project-arrow">→</span>
                 </a>
                 <a href="https://amirmuntaha.github.io/instagram_extractor/" class="project-item">
                     <div class="project-info">
-                        <span class="project-name">Instagram Extractor</span>
-                        <span class="project-desc">Download content from Instagram easily</span>
+                        <span class="project-name" id="proj2-name">Instagram Extractor</span>
+                        <span class="project-desc" id="proj2-desc">Unduh konten dari Instagram dengan mudah</span>
                     </div>
                     <span class="project-arrow">→</span>
                 </a>
@@ -252,6 +295,51 @@
             <p>© 2024 Amir Muntaha</p>
         </div>
     </footer>
+
+    <!-- Language Toggle Script -->
+    <script>
+        const translations = {
+            id: {
+                heroTitle: 'Hai, saya Amir ⚡',
+                heroDesc: 'Saya membuat alat web yang berguna. Sederhana, cepat, dan gratis.',
+                sectionLabel: 'Proyek',
+                proj1Name: 'Kalkulator Amortisasi Pinjaman',
+                proj1Desc: 'Simulasi pembayaran, lihat grafik, ekspor ke CSV',
+                proj2Name: 'Instagram Extractor',
+                proj2Desc: 'Unduh konten dari Instagram dengan mudah'
+            },
+            en: {
+                heroTitle: 'Hey, I\'m Amir ⚡',
+                heroDesc: 'I build useful web tools. Simple, fast, and free to use.',
+                sectionLabel: 'Projects',
+                proj1Name: 'Loan Amortization Calculator',
+                proj1Desc: 'Simulate payments, view charts, export to CSV',
+                proj2Name: 'Instagram Extractor',
+                proj2Desc: 'Download content from Instagram easily'
+            }
+        };
+
+        function setLang(lang) {
+            const t = translations[lang];
+            document.getElementById('hero-title').textContent = t.heroTitle;
+            document.getElementById('hero-desc').textContent = t.heroDesc;
+            document.getElementById('section-label').textContent = t.sectionLabel;
+            document.getElementById('proj1-name').textContent = t.proj1Name;
+            document.getElementById('proj1-desc').textContent = t.proj1Desc;
+            document.getElementById('proj2-name').textContent = t.proj2Name;
+            document.getElementById('proj2-desc').textContent = t.proj2Desc;
+            document.documentElement.lang = lang;
+
+            document.getElementById('btn-id').classList.toggle('active', lang === 'id');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+            localStorage.setItem('lang', lang);
+        }
+
+        // Init: load saved language or default to ID
+        const savedLang = localStorage.getItem('lang') || 'id';
+        setLang(savedLang);
+    </script>
 
 </body>
 
