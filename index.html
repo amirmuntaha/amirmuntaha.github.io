@@ -286,6 +286,13 @@
                     </div>
                     <span class="project-arrow">→</span>
                 </a>
+                <a href="https://reddit-scrapper-phi.vercel.app/" class="project-item">
+                    <div class="project-info">
+                        <span class="project-name" id="proj3-name">Reddit Scraper</span>
+                        <span class="project-desc" id="proj3-desc">Ambil data postingan Reddit dengan cepat</span>
+                    </div>
+                    <span class="project-arrow">→</span>
+                </a>
             </div>
         </div>
     </section>
@@ -307,7 +314,9 @@
                 proj1Name: 'Kalkulator Amortisasi Pinjaman',
                 proj1Desc: 'Simulasi pembayaran, grafik, ekspor CSV',
                 proj2Name: 'Instagram Extractor',
-                proj2Desc: 'Unduh konten Instagram dengan mudah'
+                proj2Desc: 'Unduh konten Instagram dengan mudah',
+                proj3Name: 'Reddit Scraper',
+                proj3Desc: 'Ambil data postingan Reddit dengan cepat'
             },
             en: {
                 heroTitle: 'Hey, I\'m Amir',
@@ -316,7 +325,9 @@
                 proj1Name: 'Loan Amortization Calculator',
                 proj1Desc: 'Simulate payments, charts, export CSV',
                 proj2Name: 'Instagram Extractor',
-                proj2Desc: 'Download Instagram content easily'
+                proj2Desc: 'Download Instagram content easily',
+                proj3Name: 'Reddit Scraper',
+                proj3Desc: 'Scrape Reddit posts data quickly'
             }
         };
 
@@ -329,6 +340,8 @@
             document.getElementById('proj1-desc').textContent = t.proj1Desc;
             document.getElementById('proj2-name').textContent = t.proj2Name;
             document.getElementById('proj2-desc').textContent = t.proj2Desc;
+            document.getElementById('proj3-name').textContent = t.proj3Name;
+            document.getElementById('proj3-desc').textContent = t.proj3Desc;
             document.documentElement.lang = lang;
 
             document.getElementById('btn-id').classList.toggle('active', lang === 'id');
