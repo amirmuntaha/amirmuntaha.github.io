@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Amir Muntaha - Web developer portfolio. Explore interactive tools including a Loan Amortization Calculator and Instagram Extractor.">
-    <meta name="keywords" content="Amir Muntaha, web developer, loan calculator, instagram extractor, tools, portfolio">
+    <meta name="description" content="Gunakan kalkulator pinjaman, cicilan, dan KPR gratis untuk menghitung bunga serta jadwal angsuran. Jelajahi juga berbagai web tools buatan Amir Muntaha.">
+    <meta name="keywords" content="kalkulator pinjaman, kalkulator cicilan, kalkulator KPR, simulasi KPR, cicilan rumah, bunga pinjaman, jadwal angsuran, Amir Muntaha, web tools">
     <meta name="author" content="Amir Muntaha">
+    <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="MjggPwAFO_3msVSQtmXogyfFJ9tqHHUveaqNxzdXCjE" />
     <meta name="google-site-verification" content="DTqaY3J5D7qh8G-DVX8xRxGv7MFPO8VrAMPwiJF7n4w" />
 
@@ -15,16 +16,39 @@
          crossorigin="anonymous"></script>
 
     <!-- Open Graph Tags -->
-    <meta property="og:title" content="Amir Muntaha - Web Tools & Projects">
-    <meta property="og:description" content="Explore interactive web tools built by Amir Muntaha — loan calculators, social media tools, and more.">
+    <meta property="og:title" content="Kalkulator Cicilan KPR &amp; Web Tools | Amir Muntaha">
+    <meta property="og:description" content="Hitung cicilan KPR, bunga pinjaman, dan jadwal angsuran secara gratis dengan web tools buatan Amir Muntaha.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://amirmuntaha.github.io/">
+    <meta property="og:locale" content="id_ID">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Kalkulator Cicilan KPR &amp; Web Tools | Amir Muntaha">
+    <meta name="twitter:description" content="Hitung cicilan KPR, bunga pinjaman, dan jadwal angsuran secara gratis.">
 
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5 L85 90 L72 90 L63 65 L37 65 L28 90 L15 90 Z M50 25 L40 55 L60 55 Z' fill='%233b82f6' /%3E%3Ccircle cx='50' cy='50' r='47' fill='none' stroke='%233b82f6' stroke-width='4' /%3E%3C/svg%3E">
     <link rel="canonical" href="https://amirmuntaha.github.io/">
 
-    <title>Amir Muntaha</title>
+    <title>Kalkulator Cicilan KPR &amp; Web Tools | Amir Muntaha</title>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Amir Muntaha Web Tools",
+            "url": "https://amirmuntaha.github.io/",
+            "inLanguage": ["id", "en"],
+            "hasPart": {
+                "@type": "WebApplication",
+                "name": "Kalkulator Pinjaman, Cicilan & KPR",
+                "url": "https://amirmuntaha.github.io/loan_calculator/",
+                "description": "Kalkulator gratis untuk menghitung cicilan KPR, bunga pinjaman, dan jadwal angsuran.",
+                "applicationCategory": "FinanceApplication",
+                "operatingSystem": "Any"
+            }
+        }
+    </script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -274,8 +298,8 @@
             <div class="project-list">
                 <a href="https://amirmuntaha.github.io/loan_calculator/" class="project-item">
                     <div class="project-info">
-                        <span class="project-name" id="proj1-name">Kalkulator Amortisasi Pinjaman</span>
-                        <span class="project-desc" id="proj1-desc">Simulasi pembayaran, grafik, ekspor CSV</span>
+                        <span class="project-name" id="proj1-name">Kalkulator Pinjaman, Cicilan &amp; KPR</span>
+                        <span class="project-desc" id="proj1-desc">Hitung cicilan KPR, bunga, dan jadwal angsuran</span>
                     </div>
                     <span class="project-arrow">→</span>
                 </a>
@@ -308,22 +332,26 @@
     <script>
         const translations = {
             id: {
+                pageTitle: 'Kalkulator Cicilan KPR & Web Tools | Amir Muntaha',
+                metaDescription: 'Gunakan kalkulator pinjaman, cicilan, dan KPR gratis untuk menghitung bunga serta jadwal angsuran. Jelajahi juga berbagai web tools buatan Amir Muntaha.',
                 heroTitle: 'Hai, saya Amir',
                 heroDesc: 'Membuat alat web yang simpel, cepat, dan gratis.',
                 sectionLabel: 'Proyek',
-                proj1Name: 'Kalkulator Amortisasi Pinjaman',
-                proj1Desc: 'Simulasi pembayaran, grafik, ekspor CSV',
+                proj1Name: 'Kalkulator Pinjaman, Cicilan & KPR',
+                proj1Desc: 'Hitung cicilan KPR, bunga, dan jadwal angsuran',
                 proj2Name: 'Instagram Extractor',
                 proj2Desc: 'Unduh konten Instagram dengan mudah',
                 proj3Name: 'Reddit Scraper',
                 proj3Desc: 'Ambil data postingan Reddit dengan cepat'
             },
             en: {
+                pageTitle: 'Loan & Mortgage Calculator and Web Tools | Amir Muntaha',
+                metaDescription: 'Use free web tools by Amir Muntaha, including a loan and mortgage calculator for payments, interest, and amortization schedules.',
                 heroTitle: 'Hey, I\'m Amir',
                 heroDesc: 'Building simple, fast, and free web tools.',
                 sectionLabel: 'Projects',
-                proj1Name: 'Loan Amortization Calculator',
-                proj1Desc: 'Simulate payments, charts, export CSV',
+                proj1Name: 'Loan, Installment & Mortgage Calculator',
+                proj1Desc: 'Calculate payments, interest, and schedules',
                 proj2Name: 'Instagram Extractor',
                 proj2Desc: 'Download Instagram content easily',
                 proj3Name: 'Reddit Scraper',
@@ -333,6 +361,8 @@
 
         function setLang(lang) {
             const t = translations[lang];
+            document.title = t.pageTitle;
+            document.querySelector('meta[name="description"]').setAttribute('content', t.metaDescription);
             document.getElementById('hero-title').textContent = t.heroTitle;
             document.getElementById('hero-desc').textContent = t.heroDesc;
             document.getElementById('section-label').textContent = t.sectionLabel;
