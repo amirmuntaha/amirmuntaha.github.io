@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catatan praktis membuat web tool transparan: ruang lingkup, validasi input, perhitungan browser, privasi, aksesibilitas, mobile, dokumentasi, dan pengujian.">
+    <meta name="author" content="Amir Muntaha">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://amirmuntaha.github.io/guides/building-transparent-web-tools/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+    <!-- AdSense is intentionally limited to substantive guide pages. -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4134152065560989" crossorigin="anonymous"></script>
+    <title>Membangun Web Tool yang Transparan, Responsif, dan Mudah Diperiksa</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"Membangun Web Tool yang Transparan, Responsif, dan Mudah Diperiksa","author":{"@type":"Person","name":"Amir Muntaha"},"datePublished":"2026-08-16","dateModified":"2026-08-16","mainEntityOfPage":"https://amirmuntaha.github.io/guides/building-transparent-web-tools/"}
+    </script>
+</head>
+<body data-description-id="Catatan praktis membuat web tool transparan: ruang lingkup, validasi input, perhitungan browser, privasi, aksesibilitas, mobile, dokumentasi, dan pengujian." data-description-en="Practical notes on building transparent web tools: scope, input validation, browser calculations, privacy, accessibility, mobile layout, documentation, and verification.">
+    <a class="skip-link" href="#main">Lewati ke konten utama</a>
+    <header class="site-header"><div class="container nav-shell"><a class="brand" href="/">Amir Muntaha</a><nav class="nav-links" data-menu aria-label="Main navigation"><a href="/"><span data-lang="id">Beranda</span><span data-lang="en" hidden>Home</span></a><a href="/#projects"><span data-lang="id">Alat</span><span data-lang="en" hidden>Tools</span></a><a href="/#guides" aria-current="page"><span data-lang="id">Panduan</span><span data-lang="en" hidden>Guides</span></a><a href="/about/"><span data-lang="id">Tentang</span><span data-lang="en" hidden>About</span></a><a href="/contact/"><span data-lang="id">Kontak</span><span data-lang="en" hidden>Contact</span></a></nav><div class="nav-actions"><div class="lang-toggle" aria-label="Language selector"><button type="button" data-set-lang="id">ID</button><button type="button" data-set-lang="en">EN</button></div><button class="menu-button" type="button" data-menu-button aria-label="Buka navigasi" aria-expanded="false">☰</button></div></div></header>
+    <main id="main">
+        <div data-lang="id">
+            <header class="article-header"><div class="container content-width"><nav class="breadcrumbs"><a href="/">Beranda</a> / <a href="/#guides">Panduan</a> / Web Tool Transparan</nav><p class="eyebrow">Catatan pengembangan</p><h1>Membangun web tool yang transparan, responsif, dan mudah diperiksa</h1><p class="lead">Sebuah alat kecil tetap perlu menjawab tiga hal: apa yang dilakukannya, data apa yang digunakan, dan kapan hasilnya tidak boleh dipercaya tanpa pemeriksaan tambahan.</p><p class="meta">Ditulis dan diperbarui oleh Amir Muntaha • 16 Agustus 2026 • sekitar 10 menit membaca</p></div></header>
+            <article class="article"><div class="container content-width">
+                <h2>1. Mulai dari satu keputusan pengguna</h2>
+                <p>Web tool yang baik tidak harus memiliki banyak fitur. Ia harus membantu pengguna menyelesaikan satu tugas dengan jelas. Pada kalkulator pinjaman, tugas utamanya adalah membandingkan hubungan antara jumlah pinjaman, tingkat bunga, jangka waktu, dan angsuran. Pada poster generator, tugasnya adalah membuat representasi visual dari unggahan publik dan tetap menyediakan jalur kembali ke sumber.</p>
+                <p>Ruang lingkup yang sempit membantu menghindari antarmuka yang membingungkan. Fitur baru sebaiknya diterima hanya jika memperjelas tugas utama, mengurangi kesalahan, atau menyediakan keluaran yang benar-benar dibutuhkan. Tombol, grafik, dan animasi yang tidak mengubah keputusan pengguna hanya menambah beban.</p>
+
+                <h2>2. Bedakan input, proses, dan interpretasi</h2>
+                <p>Kesalahan umum adalah mencampurkan semua hal dalam satu layar. Saya membagi pengalaman menjadi tiga lapisan:</p>
+                <ol>
+                    <li><strong>Input:</strong> pengguna melihat satuan, batas, contoh, dan apa yang harus dimasukkan.</li>
+                    <li><strong>Proses:</strong> kode mengubah input menjadi keluaran dengan rumus atau API yang dapat dijelaskan.</li>
+                    <li><strong>Interpretasi:</strong> teks dan visual menjelaskan arti hasil serta faktor yang tidak dimodelkan.</li>
+                </ol>
+                <p>Kalkulator dapat menampilkan “total bunga”, tetapi angka itu baru berguna jika pengguna mengetahui bahwa biaya administrasi, asuransi, pajak, perubahan suku bunga, dan keterlambatan belum dihitung. Transparansi bukan menampilkan kode mentah; transparansi adalah menyediakan konteks yang diperlukan untuk menilai hasil.</p>
+
+                <h2>3. Validasi input sebelum menghitung</h2>
+                <p>Validasi sebaiknya mengikuti model, bukan sekadar tipe HTML. Input angka masih dapat kosong, menjadi <code>NaN</code>, negatif, atau melewati batas yang masuk akal bagi implementasi. Kalkulator memeriksa jumlah di atas nol, bunga tidak negatif, bunga tidak melebihi batas simulasi, serta jangka waktu berada di antara satu dan 360 bulan.</p>
+                <p>Pesan kesalahan harus menyebut tindakan perbaikan. “Input tidak valid” tidak membantu. “Jangka waktu harus antara 1 dan 360 bulan” memberi pengguna langkah berikutnya. Pesan ditempatkan di area dengan <code>role="alert"</code> agar perubahan dapat diumumkan oleh teknologi bantu.</p>
+                <div class="callout"><p><strong>Prinsip praktis:</strong> cegah keadaan yang tidak dapat dihitung, jelaskan batas implementasi, dan jangan membuat pesan seolah-olah batas teknis adalah aturan universal.</p></div>
+
+                <h2>4. Pilih pemrosesan di browser bila proporsional</h2>
+                <p>Perhitungan matematika, pembuatan tabel, dan ekspor CSV dapat dilakukan langsung di browser. Ini mengurangi kebutuhan server dan menghindari pengiriman input ke basis data. Bagi kalkulator, tidak ada alasan meminta nama, email, nomor rekening, atau nomor kontrak.</p>
+                <p>Pemrosesan lokal bukan berarti halaman tidak pernah berhubungan dengan pihak ketiga. Font, pustaka JavaScript, embed media sosial, dan hosting tetap dapat menimbulkan permintaan jaringan. Kebijakan privasi harus membedakan antara “input alat tidak dikirim ke server milik penerbit” dan “tidak ada koneksi eksternal sama sekali”. Pernyataan kedua sering kali tidak benar.</p>
+
+                <h2>5. Buat hasil dapat diperiksa</h2>
+                <p>Satu angka ringkasan sulit diaudit. Karena itu kalkulator menyediakan tiga tingkat keluaran:</p>
+                <ul>
+                    <li>kartu ringkasan untuk angsuran, total bunga, dan total pembayaran;</li>
+                    <li>grafik untuk melihat komposisi serta perubahan pokok-bunga;</li>
+                    <li>jadwal per periode dan ekspor CSV untuk memeriksa perhitungan secara rinci.</li>
+                </ul>
+                <p>Setiap tingkat menjawab kebutuhan berbeda. Ringkasan cepat untuk membandingkan skenario, grafik untuk mengenali pola, dan tabel untuk verifikasi. Bila hasil memiliki konsekuensi penting, pengguna perlu jalur dari ringkasan menuju rincian.</p>
+
+                <h2>6. Perlakukan mobile sebagai tata letak utama</h2>
+                <p>Banyak alat dibuka dari tautan di aplikasi pesan atau media sosial, sehingga layar pertama sering berukuran sempit. Tata letak harus tetap dapat digunakan tanpa zoom horizontal. Kontrol angka membutuhkan lebar yang cukup; tabel lebar perlu pembungkus dengan <code>overflow-x: auto</code>; kartu ringkasan sebaiknya bertumpuk sebelum ruang cukup untuk beberapa kolom.</p>
+                <p>Ukuran sentuh juga penting. Slider yang tipis secara visual masih memerlukan thumb yang cukup besar. Tombol utama perlu tinggi yang nyaman, dan navigasi panjang harus berubah menjadi menu yang dapat dibuka. Responsif bukan sekadar menyusutkan font—urutan dan prioritas konten harus tetap masuk akal.</p>
+
+                <h2>7. Aksesibilitas adalah bagian dari fungsi</h2>
+                <p>Alat yang tidak dapat dioperasikan dengan keyboard belum menyelesaikan tugas bagi semua pengguna. Label harus terhubung ke input, toggle perlu status yang dapat dibaca, fokus harus terlihat, dan kanvas grafik membutuhkan nama yang menggambarkan isi. Warna sebaiknya mendukung informasi, bukan menjadi satu-satunya pembeda.</p>
+                <p>Beberapa pemeriksaan sederhana memberikan manfaat besar:</p>
+                <ul>
+                    <li>tab dari awal sampai akhir tanpa terjebak;</li>
+                    <li>jalankan tombol dengan keyboard;</li>
+                    <li>periksa heading dalam urutan logis;</li>
+                    <li>pastikan pesan hasil atau kesalahan diumumkan;</li>
+                    <li>uji kontras teks dan status aktif;</li>
+                    <li>jangan menyembunyikan tautan penting hanya pada mobile.</li>
+                </ul>
+
+                <h2>8. Pisahkan alat dari konten dan iklan</h2>
+                <p>Halaman aplikasi memiliki tujuan interaktif, sedangkan artikel memiliki tujuan membaca. Mengisi layar kalkulator dengan blok iklan atau paragraf panjang dapat mengganggu kedua tujuan. Di situs ini, alat dibuat bebas iklan. Penjelasan panjang ditempatkan dalam panduan terpisah, dan kode AdSense dibatasi pada panduan yang memiliki konten utama mandiri.</p>
+                <p>Pemisahan ini juga membuat navigasi lebih jujur: pengguna yang ingin menghitung dapat langsung menghitung, sementara pengguna yang ingin memahami rumus dapat membuka panduan. Halaman privasi, kontak, dan tentang tidak digunakan sebagai ruang iklan.</p>
+
+                <h2>9. Dokumentasikan batasan dengan contoh konkret</h2>
+                <p>Kalimat “hasil mungkin berbeda” terlalu umum. Batasan yang baik menyebut penyebab. Untuk kalkulator pinjaman, penyebabnya mencakup biaya, metode bunga, periode tidak teratur, pembulatan, perubahan suku bunga, dan pembayaran tambahan. Untuk alat berbasis embed, penyebabnya dapat berupa unggahan privat, pembatasan platform, perubahan API, atau izin tangkapan layar.</p>
+                <p>Contoh konkret membantu pengguna memutuskan apakah hasil cukup untuk kebutuhan mereka. Jika alat tidak mendukung suatu kasus, lebih baik mengatakannya daripada menghasilkan angka yang tampak presisi tetapi didasarkan pada model yang salah.</p>
+
+                <h2>10. Pengujian yang saya lakukan sebelum rilis</h2>
+                <div class="table-wrap"><table><thead><tr><th>Area</th><th>Contoh pemeriksaan</th><th>Tujuan</th></tr></thead><tbody>
+                    <tr><td>Input</td><td>Kosong, nol, negatif, desimal, batas maksimum</td><td>Mencegah hasil tak terdefinisi</td></tr>
+                    <tr><td>Perhitungan</td><td>Bunga nol, satu periode, nilai contoh yang dihitung terpisah</td><td>Memeriksa rumus dan cabang khusus</td></tr>
+                    <tr><td>Tampilan</td><td>Lebar 320px, tablet, desktop, teks panjang</td><td>Mencegah tumpang tindih dan scroll tak sengaja</td></tr>
+                    <tr><td>Interaksi</td><td>Keyboard, perubahan bahasa, ekspor, pesan error</td><td>Memastikan alur dapat diselesaikan</td></tr>
+                    <tr><td>Privasi</td><td>Network panel, localStorage, layanan pihak ketiga</td><td>Mencocokkan implementasi dengan kebijakan</td></tr>
+                    <tr><td>Navigasi</td><td>Semua tautan internal dan jalur kembali</td><td>Mencegah halaman buntu</td></tr>
+                </tbody></table></div>
+                <p>Pengujian manual bukan pengganti pengujian otomatis untuk proyek besar, tetapi tetap penting untuk pengalaman visual dan perangkat nyata. Untuk alat kecil, daftar pemeriksaan yang konsisten lebih baik daripada mengandalkan ingatan.</p>
+
+                <h2>11. Cara menilai apakah sebuah tool layak diterbitkan</h2>
+                <p>Sebelum diterbitkan, alat sebaiknya dapat menjawab pertanyaan berikut:</p>
+                <ul>
+                    <li>Masalah apa yang diselesaikan dan siapa yang terbantu?</li>
+                    <li>Apakah input dijelaskan tanpa meminta data yang tidak diperlukan?</li>
+                    <li>Bisakah hasil diperiksa melalui rincian atau contoh?</li>
+                    <li>Apakah batasan dapat ditemukan sebelum pengguna mengambil keputusan?</li>
+                    <li>Apakah halaman dapat digunakan di mobile dan dengan keyboard?</li>
+                    <li>Apakah kebijakan privasi sesuai dengan permintaan jaringan yang sebenarnya?</li>
+                    <li>Apakah pengguna memiliki jalur untuk melaporkan kesalahan?</li>
+                </ul>
+                <p>Jika jawabannya belum jelas, menambahkan lebih banyak fitur biasanya bukan solusi pertama. Perbaiki model, penjelasan, atau alur terlebih dahulu.</p>
+
+                <h2>12. Kesimpulan</h2>
+                <p>Nilai web tool tidak hanya berasal dari keluaran. Nilai juga berasal dari seberapa mudah pengguna memahami input, menilai hasil, mengetahui batasan, menjaga privasi, dan meminta koreksi. Transparansi membutuhkan dokumentasi, desain, dan implementasi yang saling cocok. Situs kecil pun dapat menerapkan prinsip tersebut tanpa membangun sistem yang rumit.</p>
+                <div class="hero-actions"><a class="button button-primary" href="/#projects">Lihat proyek</a><a class="button button-secondary" href="https://github.com/amirmuntaha">Tinjau kode di GitHub</a></div>
+            </div></article>
+        </div>
+
+        <div data-lang="en" hidden>
+            <header class="article-header"><div class="container content-width"><nav class="breadcrumbs"><a href="/">Home</a> / <a href="/#guides">Guides</a> / Transparent Web Tools</nav><p class="eyebrow">Development notes</p><h1>Building web tools that are transparent, responsive, and reviewable</h1><p class="lead">Even a small tool should answer three questions: what it does, which data it uses, and when its result requires additional verification.</p><p class="meta">Written and updated by Amir Muntaha • August 16, 2026 • approximately 9 minutes</p></div></header>
+            <article class="article"><div class="container content-width">
+                <h2>1. Start with one user decision</h2><p>A useful web tool does not need many features. It needs to help with one clear task. The loan calculator compares principal, rate, term, and payment. The poster generator creates a visual representation of a public post while preserving a path back to the source. A narrow scope keeps interfaces understandable.</p>
+                <h2>2. Separate input, process, and interpretation</h2><ol><li><strong>Input:</strong> show units, boundaries, examples, and required values.</li><li><strong>Process:</strong> transform inputs through an explainable formula or API.</li><li><strong>Interpretation:</strong> explain the output and factors outside the model.</li></ol><p>Transparency is not raw source code on the screen. It is the context required to assess a result.</p>
+                <h2>3. Validate before calculating</h2><p>Number inputs can still be empty, <code>NaN</code>, negative, or outside implementation limits. Useful errors state the correction: “term must be between 1 and 360 months” is better than “invalid input.” Live errors should also be announced to assistive technology.</p>
+                <h2>4. Prefer browser processing when proportional</h2><p>Math, tables, and CSV generation can run locally, reducing server needs and avoiding collection of user inputs. That does not mean there are no third-party connections: fonts, libraries, embeds, and hosting still create network requests. Privacy language must distinguish those facts accurately.</p>
+                <h2>5. Make results reviewable</h2><p>The calculator provides summary cards, charts, a period-by-period schedule, and CSV export. Each level serves a different purpose: comparison, pattern recognition, and detailed verification. Important outputs should offer a path from summary to evidence.</p>
+                <h2>6. Treat mobile as a primary layout</h2><p>Tools often open from messages or social apps. Number controls need usable width, wide tables need horizontal overflow, cards should stack, and navigation should become an operable menu. Responsive design is about content order and priority—not only smaller type.</p>
+                <h2>7. Accessibility is functionality</h2><p>Inputs need labels, toggles need readable state, focus must remain visible, and chart canvases need descriptive names. Keyboard operation, heading order, live errors, contrast, and mobile link availability are practical checks with broad impact.</p>
+                <h2>8. Separate tools from articles and advertising</h2><p>Applications are for interaction; articles are for reading. The tools on this site are ad-free. Long explanations are separate, and AdSense is limited to substantive guides. About, Contact, Privacy, and the homepage are not ad surfaces.</p>
+                <h2>9. Document concrete limitations</h2><p>“Results may vary” is not enough. Name the causes: fees, rate method, rounding, changing rates, extra payments, private posts, platform limits, API changes, or screen-capture permissions. A precise-looking result based on the wrong model is worse than a clear limitation.</p>
+                <h2>10. Pre-release checks</h2><div class="table-wrap"><table><thead><tr><th>Area</th><th>Example</th><th>Purpose</th></tr></thead><tbody><tr><td>Input</td><td>Empty, zero, negative, decimal, maximum</td><td>Prevent undefined output</td></tr><tr><td>Calculation</td><td>Zero rate, one period, independently checked example</td><td>Verify formulas and branches</td></tr><tr><td>Layout</td><td>320px, tablet, desktop, long text</td><td>Prevent overlap and accidental scrolling</td></tr><tr><td>Interaction</td><td>Keyboard, language, export, errors</td><td>Complete the full flow</td></tr><tr><td>Privacy</td><td>Network panel, local storage, third parties</td><td>Match policy to implementation</td></tr></tbody></table></div>
+                <h2>11. Publication questions</h2><ul><li>Which problem is solved?</li><li>Are inputs explained without collecting unnecessary data?</li><li>Can results be checked?</li><li>Are limits visible before a decision?</li><li>Does it work on mobile and keyboard?</li><li>Does privacy documentation match real requests?</li><li>Can users report an error?</li></ul><p>If those answers are unclear, adding features is rarely the first fix. Improve the model, explanation, or flow first.</p>
+                <h2>12. Conclusion</h2><p>A tool's value includes how easily visitors understand inputs, assess results, identify limits, protect privacy, and request corrections. Transparent tools align documentation, design, and implementation. Small sites can do this without complex infrastructure.</p>
+                <div class="hero-actions"><a class="button button-primary" href="/#projects">Explore projects</a><a class="button button-secondary" href="https://github.com/amirmuntaha">Review code on GitHub</a></div>
+            </div></article>
+        </div>
+    </main>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div><h2>Amir Muntaha Web Tools</h2><p data-lang="id">Catatan teknis berdasarkan keputusan dan batasan proyek yang diterbitkan.</p><p data-lang="en" hidden>Technical notes grounded in the decisions and limitations of published projects.</p></div><div><h3>Explore</h3><ul><li><a href="/">Home</a></li><li><a href="/#projects">Tools</a></li><li><a href="/#guides">Guides</a></li></ul></div><div><h3>Information</h3><ul><li><a href="/about/">About</a></li><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/contact/">Contact</a></li></ul></div></div><div class="footer-note">© 2026 Amir Muntaha.</div></div></footer>
+    <script src="/assets/site.js" defer></script>
+</body>
+</html>

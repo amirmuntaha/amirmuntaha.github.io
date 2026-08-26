@@ -1,390 +1,242 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Gunakan kalkulator pinjaman, cicilan, dan KPR gratis untuk menghitung bunga serta jadwal angsuran. Jelajahi juga berbagai web tools buatan Amir Muntaha.">
-    <meta name="keywords" content="kalkulator pinjaman, kalkulator cicilan, kalkulator KPR, simulasi KPR, cicilan rumah, bunga pinjaman, jadwal angsuran, Amir Muntaha, web tools">
+    <meta name="description" content="Kumpulan web tools dan panduan praktis buatan Amir Muntaha tentang perhitungan pinjaman, amortisasi, dan pengembangan aplikasi web yang transparan.">
     <meta name="author" content="Amir Muntaha">
     <meta name="robots" content="index, follow">
-    <meta name="google-site-verification" content="MjggPwAFO_3msVSQtmXogyfFJ9tqHHUveaqNxzdXCjE" />
-    <meta name="google-site-verification" content="DTqaY3J5D7qh8G-DVX8xRxGv7MFPO8VrAMPwiJF7n4w" />
-
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4134152065560989"
-         crossorigin="anonymous"></script>
-
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="Kalkulator Cicilan KPR &amp; Web Tools | Amir Muntaha">
-    <meta property="og:description" content="Hitung cicilan KPR, bunga pinjaman, dan jadwal angsuran secara gratis dengan web tools buatan Amir Muntaha.">
+    <meta name="google-site-verification" content="MjggPwAFO_3msVSQtmXogyfFJ9tqHHUveaqNxzdXCjE">
+    <meta name="google-site-verification" content="DTqaY3J5D7qh8G-DVX8xRxGv7MFPO8VrAMPwiJF7n4w">
+    <meta property="og:title" content="Amir Muntaha — Web Tools dan Panduan Praktis">
+    <meta property="og:description" content="Alat web gratis disertai panduan yang menjelaskan cara kerja, asumsi, dan batasannya.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://amirmuntaha.github.io/">
-    <meta property="og:locale" content="id_ID">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Kalkulator Cicilan KPR &amp; Web Tools | Amir Muntaha">
-    <meta name="twitter:description" content="Hitung cicilan KPR, bunga pinjaman, dan jadwal angsuran secara gratis.">
-
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5 L85 90 L72 90 L63 65 L37 65 L28 90 L15 90 Z M50 25 L40 55 L60 55 Z' fill='%233b82f6' /%3E%3Ccircle cx='50' cy='50' r='47' fill='none' stroke='%233b82f6' stroke-width='4' /%3E%3C/svg%3E">
     <link rel="canonical" href="https://amirmuntaha.github.io/">
-
-    <title>Kalkulator Cicilan KPR &amp; Web Tools | Amir Muntaha</title>
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "Amir Muntaha Web Tools",
-            "url": "https://amirmuntaha.github.io/",
-            "inLanguage": ["id", "en"],
-            "hasPart": {
-                "@type": "WebApplication",
-                "name": "Kalkulator Pinjaman, Cicilan & KPR",
-                "url": "https://amirmuntaha.github.io/loan_calculator/",
-                "description": "Kalkulator gratis untuk menghitung cicilan KPR, bunga pinjaman, dan jadwal angsuran.",
-                "applicationCategory": "FinanceApplication",
-                "operatingSystem": "Any"
-            }
-        }
-    </script>
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0a0a0a;
-            color: #e5e5e5;
-            min-height: 100vh;
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Navigation */
-        nav {
-            padding: 24px 0;
-            border-bottom: 1px solid #1a1a1a;
-        }
-
-        nav .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: #fff;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .nav-link {
-            color: #737373;
-            transition: color 0.2s;
-        }
-
-        .nav-link:hover {
-            color: #fff;
-        }
-
-        .nav-link svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Language Toggle */
-        .lang-toggle {
-            display: flex;
-            align-items: center;
-            background: #1a1a1a;
-            border-radius: 6px;
-            overflow: hidden;
-            border: 1px solid #262626;
-        }
-
-        .lang-btn {
-            padding: 4px 10px;
-            font-size: 0.7rem;
-            font-weight: 500;
-            color: #737373;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            transition: background 0.2s, color 0.2s;
-            letter-spacing: 0.02em;
-        }
-
-        .lang-btn.active {
-            background: #fff;
-            color: #0a0a0a;
-        }
-
-        .lang-btn:hover:not(.active) {
-            color: #e5e5e5;
-        }
-
-        /* Hero */
-        .hero {
-            padding: 80px 0 60px;
-        }
-
-        .hero h1 {
-            font-size: 1.75rem;
-            font-weight: 600;
-            color: #fff;
-            letter-spacing: -0.03em;
-            margin-bottom: 12px;
-        }
-
-        .hero p {
-            color: #737373;
-            font-size: 0.95rem;
-            max-width: 480px;
-            min-height: 1.6em;
-        }
-
-        /* Projects */
-        .projects {
-            padding: 0 0 80px;
-        }
-
-        .section-label {
-            font-size: 0.75rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #525252;
-            margin-bottom: 24px;
-        }
-
-        .project-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1px;
-            background: #1a1a1a;
-            border: 1px solid #1a1a1a;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .project-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 24px;
-            background: #111;
-            transition: background 0.2s;
-        }
-
-        .project-item:hover {
-            background: #171717;
-        }
-
-        .project-info {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .project-name {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #fff;
-        }
-
-        .project-desc {
-            font-size: 0.8rem;
-            color: #737373;
-        }
-
-        .project-arrow {
-            color: #525252;
-            font-size: 1rem;
-            transition: color 0.2s, transform 0.2s;
-        }
-
-        .project-item:hover .project-arrow {
-            color: #fff;
-            transform: translateX(3px);
-        }
-
-        /* Footer */
-        footer {
-            padding: 32px 0;
-            border-top: 1px solid #1a1a1a;
-            text-align: center;
-        }
-
-        footer p {
-            font-size: 0.75rem;
-            color: #525252;
-        }
-
-        /* Responsive */
-        @media (max-width: 480px) {
-            .hero {
-                padding: 48px 0 40px;
-            }
-
-            .hero h1 {
-                font-size: 1.5rem;
-            }
-
-            .project-item {
-                padding: 16px 20px;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+    <title>Amir Muntaha — Web Tools dan Panduan Praktis</title>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Amir Muntaha Web Tools",
+        "url": "https://amirmuntaha.github.io/",
+        "author": {
+            "@type": "Person",
+            "name": "Amir Muntaha",
+            "url": "https://amirmuntaha.github.io/about/"
+        },
+        "inLanguage": ["id", "en"]
+    }
+    </script>
 </head>
-
-<body>
-
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="/" class="logo">Amir Muntaha</a>
-            <div class="nav-right">
-                <div class="lang-toggle">
-                    <button class="lang-btn active" id="btn-id" onclick="setLang('id')">ID</button>
-                    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+<body data-description-id="Kumpulan web tools dan panduan praktis buatan Amir Muntaha tentang perhitungan pinjaman, amortisasi, dan pengembangan aplikasi web yang transparan." data-description-en="A collection of practical web tools and original guides by Amir Muntaha about loan calculations, amortization, and transparent web application development.">
+    <a class="skip-link" href="#main">Lewati ke konten utama</a>
+    <header class="site-header">
+        <div class="container nav-shell">
+            <a class="brand" href="/">Amir Muntaha</a>
+            <nav class="nav-links" data-menu aria-label="Navigasi utama">
+                <a href="#projects" data-section-link="projects"><span data-lang="id">Alat</span><span data-lang="en" hidden>Tools</span></a>
+                <a href="#guides" data-section-link="guides"><span data-lang="id">Panduan</span><span data-lang="en" hidden>Guides</span></a>
+                <a href="/about/"><span data-lang="id">Tentang</span><span data-lang="en" hidden>About</span></a>
+                <a href="/contact/"><span data-lang="id">Kontak</span><span data-lang="en" hidden>Contact</span></a>
+            </nav>
+            <div class="nav-actions">
+                <div class="lang-toggle" aria-label="Language selector">
+                    <button type="button" data-set-lang="id" aria-pressed="true">ID</button>
+                    <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
                 </div>
-                <a href="https://github.com/amirmuntaha" target="_blank" rel="noopener noreferrer" class="nav-link" aria-label="GitHub">
-                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                </a>
+                <button class="menu-button" type="button" data-menu-button aria-label="Buka navigasi" aria-expanded="false">☰</button>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container">
-            <h1 id="hero-title">Hai, saya Amir</h1>
-            <p id="hero-desc">Membuat alat web yang simpel, cepat, dan gratis.</p>
+    <main id="main">
+        <div data-lang="id">
+            <section class="hero">
+                <div class="container">
+                    <p class="eyebrow">Alat terbuka, penjelasan transparan</p>
+                    <h1>Web tools yang berguna, disertai panduan tentang cara kerjanya.</h1>
+                    <p class="lead">Saya membuat aplikasi web kecil untuk membantu pekerjaan sehari-hari. Setiap alat dilengkapi konteks, asumsi, keterbatasan, dan panduan penggunaan agar hasilnya tidak sekadar angka atau tombol.</p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#projects" data-section-link="projects">Lihat web tools</a>
+                        <a class="button button-secondary" href="#guides" data-section-link="guides">Baca panduan</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="projects">
+                <div class="container">
+                    <div class="section-heading">
+                        <p class="eyebrow">Proyek aktif</p>
+                        <h2>Alat yang dapat digunakan langsung</h2>
+                        <p>Halaman alat sengaja bebas iklan agar fokus tetap pada fungsi utama. Informasi pendukung tersedia melalui panduan terpisah di situs ini.</p>
+                    </div>
+                    <div class="card-grid three">
+                        <article class="card">
+                            <span class="icon" aria-hidden="true">💰</span>
+                            <span class="pill">Keuangan pribadi</span>
+                            <h3>Kalkulator Pinjaman &amp; Amortisasi</h3>
+                            <p>Menghitung estimasi angsuran bulanan, total bunga, komposisi pembayaran, dan jadwal amortisasi. Tersedia mode jumlah pinjaman maupun target angsuran.</p>
+                            <a class="card-link" href="https://amirmuntaha.github.io/loan_calculator/">Buka kalkulator →</a>
+                        </article>
+                        <article class="card">
+                            <span class="icon" aria-hidden="true">📸</span>
+                            <span class="pill">Utilitas browser</span>
+                            <h3>Instagram Poster Generator</h3>
+                            <p>Membuat tampilan poster dari unggahan Instagram publik dengan kode QR menuju sumber asli. Alat berjalan di browser dan meminta izin sebelum menangkap tab.</p>
+                            <a class="card-link" href="https://amirmuntaha.github.io/instagram_extractor/">Buka generator →</a>
+                        </article>
+                        <article class="card">
+                            <span class="icon" aria-hidden="true">🧭</span>
+                            <span class="pill">Eksperimen data</span>
+                            <h3>Reddit Scraper</h3>
+                            <p>Eksperimen untuk mengambil data posting publik Reddit dan menyusunnya menjadi keluaran yang lebih mudah ditinjau. Gunakan sesuai ketentuan platform dan kebutuhan yang sah.</p>
+                            <a class="card-link" href="https://reddit-scrapper-phi.vercel.app/" rel="noopener">Buka proyek →</a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section section-alt" id="guides">
+                <div class="container">
+                    <div class="section-heading">
+                        <p class="eyebrow">Pusat panduan</p>
+                        <h2>Baca sebelum mempercayai hasil sebuah alat</h2>
+                        <p>Panduan berikut ditulis untuk menjelaskan konsep, rumus, keputusan desain, dan batasan yang ada di balik proyek—bukan hanya untuk mengejar kata kunci.</p>
+                    </div>
+                    <div class="card-grid">
+                        <article class="card">
+                            <p class="meta">Panduan keuangan • diperbarui 16 Agustus 2026</p>
+                            <h3>Memahami amortisasi pinjaman dari pokok hingga pelunasan</h3>
+                            <p>Penjelasan langkah demi langkah tentang bunga bulanan, rumus angsuran tetap, perubahan porsi pokok dan bunga, contoh perhitungan, serta cara membaca jadwal amortisasi.</p>
+                            <a class="card-link" href="/guides/loan-amortization/">Baca panduan amortisasi →</a>
+                        </article>
+                        <article class="card">
+                            <p class="meta">Catatan pengembangan • diperbarui 16 Agustus 2026</p>
+                            <h3>Bagaimana saya merancang web tool yang transparan</h3>
+                            <p>Catatan praktis tentang validasi input, perhitungan di browser, penanganan data, aksesibilitas, pengujian manual, dan cara menyampaikan keterbatasan aplikasi.</p>
+                            <a class="card-link" href="/guides/building-transparent-web-tools/">Baca catatan pengembangan →</a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <div class="section-heading">
+                        <p class="eyebrow">Standar penerbitan</p>
+                        <h2>Apa yang saya periksa sebelum menerbitkan</h2>
+                        <p>Situs ini kecil, tetapi konten dan alatnya tetap mengikuti proses yang konsisten agar pengunjung memahami apa yang mereka gunakan.</p>
+                    </div>
+                    <ul class="feature-list">
+                        <li><strong>Rumus dan asumsi dijelaskan</strong>Perhitungan penting tidak disembunyikan. Panduan menjelaskan input, satuan, model bunga, serta kondisi yang dapat membuat hasil berbeda dari penawaran nyata.</li>
+                        <li><strong>Alat tidak mengaku sebagai penasihat</strong>Kalkulator memberikan estimasi edukatif. Keputusan kredit tetap harus memakai dokumen resmi dari bank, pemberi pinjaman, atau profesional terkait.</li>
+                        <li><strong>Privasi dibuat proporsional</strong>Alat statis sebisa mungkin memproses input di browser. Halaman privasi menjelaskan penyimpanan lokal, layanan pihak ketiga, dan iklan secara spesifik.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section section-alt faq">
+                <div class="container content-width">
+                    <div class="section-heading">
+                        <p class="eyebrow">Pertanyaan umum</p>
+                        <h2>Tentang situs ini</h2>
+                    </div>
+                    <details>
+                        <summary>Apakah semua alat gratis?</summary>
+                        <p>Ya. Proyek yang ditautkan dari halaman ini dapat digunakan tanpa pembayaran. Beberapa proyek mungkin bergantung pada layanan pihak ketiga yang memiliki kebijakan sendiri.</p>
+                    </details>
+                    <details>
+                        <summary>Apakah hasil kalkulator pinjaman sama dengan penawaran bank?</summary>
+                        <p>Tidak selalu. Kalkulator memakai model angsuran tetap berdasarkan input pengguna dan tidak memasukkan biaya administrasi, asuransi, pajak, denda, bunga mengambang, atau aturan pembulatan pemberi pinjaman.</p>
+                    </details>
+                    <details>
+                        <summary>Di mana iklan dapat tampil?</summary>
+                        <p>Iklan tidak dipasang pada halaman alat, halaman kontak, halaman tentang, halaman privasi, atau beranda. Kode iklan hanya disertakan pada panduan panjang yang memiliki konten utama mandiri.</p>
+                    </details>
+                    <details>
+                        <summary>Bagaimana cara melaporkan kesalahan?</summary>
+                        <p>Kunjungi halaman Kontak dan gunakan tautan GitHub yang sesuai. Sertakan halaman, langkah untuk mengulang masalah, hasil yang diharapkan, dan perangkat atau browser yang digunakan.</p>
+                    </details>
+                </div>
+            </section>
         </div>
-    </section>
 
-    <!-- Projects -->
-    <section class="projects">
+        <div data-lang="en" hidden>
+            <section class="hero">
+                <div class="container">
+                    <p class="eyebrow">Open tools, transparent explanations</p>
+                    <h1>Useful web tools with guides that explain how they work.</h1>
+                    <p class="lead">I build small web applications for everyday tasks. Each tool is supported by context, assumptions, limitations, and practical guidance so visitors receive more than a number or a button.</p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#projects" data-section-link="projects">Explore web tools</a>
+                        <a class="button button-secondary" href="#guides" data-section-link="guides">Read the guides</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="projects-en">
+                <div class="container">
+                    <div class="section-heading">
+                        <p class="eyebrow">Active projects</p>
+                        <h2>Tools you can use now</h2>
+                        <p>Tool pages are intentionally ad-free so the interface remains focused. Supporting information is published in separate guides on this site.</p>
+                    </div>
+                    <div class="card-grid three">
+                        <article class="card"><span class="icon">💰</span><span class="pill">Personal finance</span><h3>Loan &amp; Amortization Calculator</h3><p>Estimates monthly payments, total interest, payment composition, and a full amortization schedule. It supports both loan-principal and target-payment modes.</p><a class="card-link" href="https://amirmuntaha.github.io/loan_calculator/">Open the calculator →</a></article>
+                        <article class="card"><span class="icon">📸</span><span class="pill">Browser utility</span><h3>Instagram Poster Generator</h3><p>Creates a poster view from a public Instagram post with a QR code to the original source. It runs in the browser and asks before capturing the tab.</p><a class="card-link" href="https://amirmuntaha.github.io/instagram_extractor/">Open the generator →</a></article>
+                        <article class="card"><span class="icon">🧭</span><span class="pill">Data experiment</span><h3>Reddit Scraper</h3><p>An experiment for retrieving public Reddit post data and arranging it into an easier-to-review output. Use it for legitimate needs and follow platform terms.</p><a class="card-link" href="https://reddit-scrapper-phi.vercel.app/" rel="noopener">Open the project →</a></article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section section-alt" id="guides-en">
+                <div class="container">
+                    <div class="section-heading"><p class="eyebrow">Guide center</p><h2>Read before trusting a tool's output</h2><p>These guides explain concepts, formulas, design decisions, and limitations behind the projects rather than merely targeting search terms.</p></div>
+                    <div class="card-grid">
+                        <article class="card"><p class="meta">Finance guide • updated August 16, 2026</p><h3>Understanding loan amortization from principal to payoff</h3><p>A step-by-step explanation of monthly interest, the fixed-payment formula, changing principal and interest portions, a worked example, and how to read a schedule.</p><a class="card-link" href="/guides/loan-amortization/">Read the amortization guide →</a></article>
+                        <article class="card"><p class="meta">Development notes • updated August 16, 2026</p><h3>How I design transparent web tools</h3><p>Practical notes about input validation, browser-side calculations, data handling, accessibility, manual verification, and communicating application limits.</p><a class="card-link" href="/guides/building-transparent-web-tools/">Read the development notes →</a></article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <div class="section-heading"><p class="eyebrow">Publishing standards</p><h2>What I check before publishing</h2><p>This is a small site, but its content and tools still follow a consistent process so visitors understand what they are using.</p></div>
+                    <ul class="feature-list">
+                        <li><strong>Formulas and assumptions are explained</strong>Important calculations are not hidden. Guides identify inputs, units, interest models, and reasons real offers may differ.</li>
+                        <li><strong>Tools do not claim to be advisers</strong>The calculator offers educational estimates. Credit decisions should rely on official documents from a lender or relevant professional.</li>
+                        <li><strong>Privacy is proportional</strong>Static tools process input in the browser where practical. The privacy page specifically explains local storage, third parties, and advertising.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section section-alt faq">
+                <div class="container content-width">
+                    <div class="section-heading"><p class="eyebrow">Frequently asked questions</p><h2>About this site</h2></div>
+                    <details><summary>Are all tools free?</summary><p>Yes. Projects linked from this page can be used without payment. Some projects may rely on third-party services with their own policies.</p></details>
+                    <details><summary>Will the loan calculator match a bank offer?</summary><p>Not necessarily. It uses a fixed-payment model based on user inputs and excludes administration fees, insurance, taxes, penalties, floating rates, and lender-specific rounding.</p></details>
+                    <details><summary>Where can ads appear?</summary><p>Ads are not enabled on tools, contact, about, privacy, or the homepage. Advertising code is included only on long-form guides with independent main content.</p></details>
+                    <details><summary>How do I report an error?</summary><p>Visit Contact and use the relevant GitHub link. Include the page, reproduction steps, expected result, and the device or browser used.</p></details>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
         <div class="container">
-            <p class="section-label" id="section-label">Proyek</p>
-            <div class="project-list">
-                <a href="https://amirmuntaha.github.io/loan_calculator/" class="project-item">
-                    <div class="project-info">
-                        <span class="project-name" id="proj1-name">Kalkulator Pinjaman, Cicilan &amp; KPR</span>
-                        <span class="project-desc" id="proj1-desc">Hitung cicilan KPR, bunga, dan jadwal angsuran</span>
-                    </div>
-                    <span class="project-arrow">→</span>
-                </a>
-                <a href="https://amirmuntaha.github.io/instagram_extractor/" class="project-item">
-                    <div class="project-info">
-                        <span class="project-name" id="proj2-name">Instagram Extractor</span>
-                        <span class="project-desc" id="proj2-desc">Unduh konten Instagram dengan mudah</span>
-                    </div>
-                    <span class="project-arrow">→</span>
-                </a>
-                <a href="https://reddit-scrapper-phi.vercel.app/" class="project-item">
-                    <div class="project-info">
-                        <span class="project-name" id="proj3-name">Reddit Scraper</span>
-                        <span class="project-desc" id="proj3-desc">Ambil data postingan Reddit dengan cepat</span>
-                    </div>
-                    <span class="project-arrow">→</span>
-                </a>
+            <div class="footer-grid">
+                <div><h2>Amir Muntaha Web Tools</h2><p data-lang="id">Alat web gratis dan panduan praktis dengan asumsi yang dijelaskan secara terbuka.</p><p data-lang="en" hidden>Free web tools and practical guides with openly explained assumptions.</p></div>
+                <div><h3 data-lang="id">Jelajahi</h3><h3 data-lang="en" hidden>Explore</h3><ul><li><a href="#projects" data-section-link="projects">Web tools</a></li><li><a href="#guides" data-section-link="guides">Guides</a></li><li><a href="https://github.com/amirmuntaha">GitHub</a></li></ul></div>
+                <div><h3 data-lang="id">Informasi</h3><h3 data-lang="en" hidden>Information</h3><ul><li><a href="/about/">About</a></li><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/contact/">Contact</a></li></ul></div>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>© 2024 Amir Muntaha</p>
+            <div class="footer-note">© 2026 Amir Muntaha. <span data-lang="id">Terakhir diperbarui 16 Agustus 2026.</span><span data-lang="en" hidden>Last updated August 16, 2026.</span></div>
         </div>
     </footer>
-
-    <!-- Language Toggle Script -->
-    <script>
-        const translations = {
-            id: {
-                pageTitle: 'Kalkulator Cicilan KPR & Web Tools | Amir Muntaha',
-                metaDescription: 'Gunakan kalkulator pinjaman, cicilan, dan KPR gratis untuk menghitung bunga serta jadwal angsuran. Jelajahi juga berbagai web tools buatan Amir Muntaha.',
-                heroTitle: 'Hai, saya Amir',
-                heroDesc: 'Membuat alat web yang simpel, cepat, dan gratis.',
-                sectionLabel: 'Proyek',
-                proj1Name: 'Kalkulator Pinjaman, Cicilan & KPR',
-                proj1Desc: 'Hitung cicilan KPR, bunga, dan jadwal angsuran',
-                proj2Name: 'Instagram Extractor',
-                proj2Desc: 'Unduh konten Instagram dengan mudah',
-                proj3Name: 'Reddit Scraper',
-                proj3Desc: 'Ambil data postingan Reddit dengan cepat'
-            },
-            en: {
-                pageTitle: 'Loan & Mortgage Calculator and Web Tools | Amir Muntaha',
-                metaDescription: 'Use free web tools by Amir Muntaha, including a loan and mortgage calculator for payments, interest, and amortization schedules.',
-                heroTitle: 'Hey, I\'m Amir',
-                heroDesc: 'Building simple, fast, and free web tools.',
-                sectionLabel: 'Projects',
-                proj1Name: 'Loan, Installment & Mortgage Calculator',
-                proj1Desc: 'Calculate payments, interest, and schedules',
-                proj2Name: 'Instagram Extractor',
-                proj2Desc: 'Download Instagram content easily',
-                proj3Name: 'Reddit Scraper',
-                proj3Desc: 'Scrape Reddit posts data quickly'
-            }
-        };
-
-        function setLang(lang) {
-            const t = translations[lang];
-            document.title = t.pageTitle;
-            document.querySelector('meta[name="description"]').setAttribute('content', t.metaDescription);
-            document.getElementById('hero-title').textContent = t.heroTitle;
-            document.getElementById('hero-desc').textContent = t.heroDesc;
-            document.getElementById('section-label').textContent = t.sectionLabel;
-            document.getElementById('proj1-name').textContent = t.proj1Name;
-            document.getElementById('proj1-desc').textContent = t.proj1Desc;
-            document.getElementById('proj2-name').textContent = t.proj2Name;
-            document.getElementById('proj2-desc').textContent = t.proj2Desc;
-            document.getElementById('proj3-name').textContent = t.proj3Name;
-            document.getElementById('proj3-desc').textContent = t.proj3Desc;
-            document.documentElement.lang = lang;
-
-            document.getElementById('btn-id').classList.toggle('active', lang === 'id');
-            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-
-            localStorage.setItem('lang', lang);
-        }
-
-        // Init: load saved language or default to ID
-        const savedLang = localStorage.getItem('lang') || 'id';
-        setLang(savedLang);
-    </script>
-
+    <script src="/assets/site.js" defer></script>
 </body>
-
 </html>

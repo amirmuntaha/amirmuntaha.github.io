@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tentang Amir Muntaha, tujuan situs, proses pembuatan web tools, dan standar editorial yang digunakan untuk menerbitkan panduan.">
+    <meta name="author" content="Amir Muntaha">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://amirmuntaha.github.io/about/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+    <title>Tentang Amir Muntaha dan Situs Ini</title>
+</head>
+<body data-description-id="Tentang Amir Muntaha, tujuan situs, proses pembuatan web tools, dan standar editorial yang digunakan untuk menerbitkan panduan." data-description-en="About Amir Muntaha, this site's purpose, the web-tool development process, and the editorial standards used for published guides.">
+    <a class="skip-link" href="#main">Lewati ke konten utama</a>
+    <header class="site-header"><div class="container nav-shell"><a class="brand" href="/">Amir Muntaha</a><nav class="nav-links" data-menu aria-label="Main navigation"><a href="/"><span data-lang="id">Beranda</span><span data-lang="en" hidden>Home</span></a><a href="/#projects"><span data-lang="id">Alat</span><span data-lang="en" hidden>Tools</span></a><a href="/#guides"><span data-lang="id">Panduan</span><span data-lang="en" hidden>Guides</span></a><a href="/about/" aria-current="page"><span data-lang="id">Tentang</span><span data-lang="en" hidden>About</span></a><a href="/contact/"><span data-lang="id">Kontak</span><span data-lang="en" hidden>Contact</span></a></nav><div class="nav-actions"><div class="lang-toggle" aria-label="Language selector"><button type="button" data-set-lang="id">ID</button><button type="button" data-set-lang="en">EN</button></div><button class="menu-button" type="button" data-menu-button aria-label="Buka navigasi" aria-expanded="false">☰</button></div></div></header>
+    <main id="main">
+        <div data-lang="id">
+            <header class="page-hero"><div class="container content-width"><nav class="breadcrumbs"><a href="/">Beranda</a> / Tentang</nav><p class="eyebrow">Tentang penerbit</p><h1>Alat kecil yang dibuat untuk menjawab kebutuhan nyata.</h1><p class="lead">Situs ini adalah tempat saya, Amir Muntaha, menerbitkan web tools eksperimental dan dokumentasi yang menjelaskan cara kerja, batasan, dan keputusan di baliknya.</p></div></header>
+            <article class="article"><div class="container content-width">
+                <h2>Tujuan situs</h2>
+                <p>Saya sering menemukan kebutuhan yang terlalu kecil untuk sebuah aplikasi komersial, tetapi cukup berulang untuk layak diotomatisasi. Contohnya adalah membandingkan struktur pembayaran pinjaman atau mengubah tampilan unggahan publik menjadi poster yang mudah dibagikan. Situs ini mengumpulkan solusi kecil semacam itu dalam bentuk halaman web yang dapat dibuka tanpa instalasi.</p>
+                <p>Fokus utamanya bukan jumlah proyek, melainkan kegunaan dan keterbukaan. Jika sebuah alat melakukan perhitungan, saya berusaha menjelaskan rumus dan asumsi. Jika alat bergantung pada fitur browser atau layanan eksternal, saya menjelaskan izin dan batasannya. Penjelasan tersebut dipisahkan dari antarmuka alat agar halaman alat tetap sederhana.</p>
+
+                <h2>Bagaimana proyek dibuat</h2>
+                <p>Proyek di situs ini umumnya dibangun sebagai aplikasi statis yang berjalan di browser. Pendekatan ini membuat hosting lebih sederhana dan, untuk banyak fungsi, memungkinkan input tetap berada di perangkat pengguna. Tidak semua proyek dapat bekerja sepenuhnya lokal karena embed, API, atau CDN pihak ketiga mungkin tetap diperlukan.</p>
+                <ol>
+                    <li><strong>Menentukan satu masalah.</strong> Setiap proyek dimulai dari tugas yang jelas, seperti menghitung jadwal amortisasi atau membuat representasi poster dari sumber publik.</li>
+                    <li><strong>Membuat alur paling sederhana.</strong> Input, hasil, pesan kesalahan, dan jalur kembali dirancang sebelum fitur tambahan.</li>
+                    <li><strong>Memeriksa kasus batas.</strong> Nilai nol, nilai negatif, jangka waktu ekstrem, layar sempit, dan kegagalan layanan eksternal ditinjau secara manual.</li>
+                    <li><strong>Menulis konteks.</strong> Panduan menjelaskan model perhitungan, keterbatasan, serta hal yang perlu diperiksa pengguna di sumber resmi.</li>
+                    <li><strong>Menerbitkan perubahan secara terbuka.</strong> Kode proyek tersedia di GitHub agar riwayat perubahan dan implementasinya dapat diperiksa.</li>
+                </ol>
+
+                <h2>Standar editorial</h2>
+                <p>Artikel di situs ini ditulis khusus untuk mendukung proyek yang benar-benar tersedia. Isinya berangkat dari implementasi, pengujian, dan pertanyaan yang mungkin muncul saat menggunakan alat. Saya menghindari klaim hasil yang tidak dapat dijamin dan tidak menyamarkan estimasi sebagai keputusan profesional.</p>
+                <ul>
+                    <li>Tanggal pembaruan ditampilkan pada panduan.</li>
+                    <li>Contoh angka diberi label sebagai ilustrasi, bukan penawaran produk.</li>
+                    <li>Istilah teknis dijelaskan dengan bahasa yang dapat diikuti pembaca nonteknis.</li>
+                    <li>Kesalahan yang dilaporkan diperbaiki di kode atau dijelaskan sebagai keterbatasan.</li>
+                    <li>Konten bersponsor, jika pernah ada, harus diberi label dengan jelas.</li>
+                </ul>
+
+                <h2>Tentang iklan</h2>
+                <p>Beranda, halaman alat, halaman tentang, halaman kontak, dan kebijakan privasi tidak memuat kode AdSense. Kode iklan hanya ditempatkan pada panduan panjang yang memiliki nilai mandiri bagi pembaca. Pemisahan ini dilakukan agar layar yang fungsi utamanya berupa navigasi atau interaksi alat tidak dipenuhi iklan.</p>
+
+                <h2>Batas tanggung jawab</h2>
+                <p>Web tools disediakan untuk tujuan informasi dan pendidikan. Kalkulator keuangan bukan nasihat keuangan atau penawaran kredit. Proyek yang berinteraksi dengan platform pihak ketiga bukan layanan resmi platform tersebut. Pengguna bertanggung jawab memeriksa hasil, mematuhi ketentuan layanan yang berlaku, dan menggunakan sumber resmi sebelum mengambil keputusan.</p>
+
+                <div class="callout"><p><strong>Ingin meninjau kode atau melaporkan masalah?</strong></p><p>Kunjungi <a href="https://github.com/amirmuntaha">profil GitHub</a> atau gunakan petunjuk pada <a href="/contact/">halaman Kontak</a>.</p></div>
+            </div></article>
+        </div>
+
+        <div data-lang="en" hidden>
+            <header class="page-hero"><div class="container content-width"><nav class="breadcrumbs"><a href="/">Home</a> / About</nav><p class="eyebrow">About the publisher</p><h1>Small tools built to answer real needs.</h1><p class="lead">This is where I, Amir Muntaha, publish experimental web tools and documentation that explains how they work, what they cannot do, and why they were designed that way.</p></div></header>
+            <article class="article"><div class="container content-width">
+                <h2>Purpose of the site</h2><p>I often encounter needs that are too small for a commercial application but repetitive enough to automate. Examples include comparing a loan payment structure or turning a public post view into a shareable poster. This site collects such focused solutions as web pages that require no installation.</p><p>The priority is usefulness and openness rather than project count. When a tool calculates something, I aim to explain its formula and assumptions. When it relies on a browser feature or external service, I explain the relevant permission and limitations. These explanations live separately so the actual tool remains focused.</p>
+                <h2>How projects are built</h2><p>Projects are generally static browser applications. That keeps hosting simple and, for many functions, lets inputs remain on the visitor's device. Some tools still require third-party embeds, APIs, or CDN assets.</p><ol><li><strong>Define one problem.</strong> Each project starts with a focused task.</li><li><strong>Design the simplest flow.</strong> Inputs, outputs, errors, and a route back are planned first.</li><li><strong>Check edge cases.</strong> Zero, negative, extreme, narrow-screen, and external-service failure scenarios are reviewed.</li><li><strong>Write context.</strong> A guide explains the model, limitations, and what users should verify officially.</li><li><strong>Publish openly.</strong> Project code is available on GitHub so implementation and history can be reviewed.</li></ol>
+                <h2>Editorial standards</h2><p>Articles support projects that actually exist. They are based on implementation details, testing, and realistic user questions. I avoid guarantees that a tool cannot provide and do not present estimates as professional decisions.</p><ul><li>Guides display an update date.</li><li>Numerical examples are labeled as illustrations.</li><li>Technical terms are explained for nontechnical readers.</li><li>Reported errors are fixed or documented as limitations.</li><li>Any future sponsored content must be clearly labeled.</li></ul>
+                <h2>Advertising approach</h2><p>The homepage, tools, About, Contact, and Privacy Policy do not load AdSense. Advertising code is limited to long-form guides that have independent reader value. This prevents navigation and application screens from being treated as ad surfaces.</p>
+                <h2>Limitations</h2><p>Tools are provided for information and education. The finance calculator is not financial advice or a credit offer. Projects that interact with third-party platforms are not official services of those platforms. Visitors should verify outputs, follow applicable terms, and consult official sources before making decisions.</p>
+                <div class="callout"><p><strong>Want to inspect the code or report an issue?</strong></p><p>Visit my <a href="https://github.com/amirmuntaha">GitHub profile</a> or follow the options on <a href="/contact/">Contact</a>.</p></div>
+            </div></article>
+        </div>
+    </main>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div><h2>Amir Muntaha Web Tools</h2><p data-lang="id">Alat dan tulisan yang menjelaskan cara kerja serta batasannya.</p><p data-lang="en" hidden>Tools and writing that explain how things work and where they stop.</p></div><div><h3>Explore</h3><ul><li><a href="/">Home</a></li><li><a href="/#projects">Tools</a></li><li><a href="/#guides">Guides</a></li></ul></div><div><h3>Information</h3><ul><li><a href="/about/">About</a></li><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/contact/">Contact</a></li></ul></div></div><div class="footer-note">© 2026 Amir Muntaha.</div></div></footer>
+    <script src="/assets/site.js" defer></script>
+</body>
+</html>
