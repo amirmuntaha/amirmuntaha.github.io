@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panduan lengkap amortisasi pinjaman: rumus angsuran tetap, bunga bulanan, porsi pokok, contoh perhitungan, membaca tabel, dan batasan kalkulator.">
+    <meta name="author" content="Amir Muntaha">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://amirmuntaha.github.io/guides/loan-amortization/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+    <!-- AdSense is intentionally limited to substantive guide pages. -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4134152065560989" crossorigin="anonymous"></script>
+    <title>Memahami Amortisasi Pinjaman: Rumus, Contoh, dan Cara Membaca Jadwal</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"Memahami Amortisasi Pinjaman: Rumus, Contoh, dan Cara Membaca Jadwal","author":{"@type":"Person","name":"Amir Muntaha"},"datePublished":"2026-08-16","dateModified":"2026-08-16","mainEntityOfPage":"https://amirmuntaha.github.io/guides/loan-amortization/"}
+    </script>
+</head>
+<body data-description-id="Panduan lengkap amortisasi pinjaman: rumus angsuran tetap, bunga bulanan, porsi pokok, contoh perhitungan, membaca tabel, dan batasan kalkulator." data-description-en="A detailed guide to loan amortization: fixed-payment formulas, monthly interest, principal portions, a worked example, schedule interpretation, and calculator limitations.">
+    <a class="skip-link" href="#main">Lewati ke konten utama</a>
+    <header class="site-header"><div class="container nav-shell"><a class="brand" href="/">Amir Muntaha</a><nav class="nav-links" data-menu aria-label="Main navigation"><a href="/"><span data-lang="id">Beranda</span><span data-lang="en" hidden>Home</span></a><a href="/#projects"><span data-lang="id">Alat</span><span data-lang="en" hidden>Tools</span></a><a href="/#guides" aria-current="page"><span data-lang="id">Panduan</span><span data-lang="en" hidden>Guides</span></a><a href="/about/"><span data-lang="id">Tentang</span><span data-lang="en" hidden>About</span></a><a href="/contact/"><span data-lang="id">Kontak</span><span data-lang="en" hidden>Contact</span></a></nav><div class="nav-actions"><div class="lang-toggle" aria-label="Language selector"><button type="button" data-set-lang="id">ID</button><button type="button" data-set-lang="en">EN</button></div><button class="menu-button" type="button" data-menu-button aria-label="Buka navigasi" aria-expanded="false">☰</button></div></div></header>
+    <main id="main">
+        <div data-lang="id">
+            <header class="article-header"><div class="container content-width"><nav class="breadcrumbs"><a href="/">Beranda</a> / <a href="/#guides">Panduan</a> / Amortisasi Pinjaman</nav><p class="eyebrow">Panduan keuangan dasar</p><h1>Memahami amortisasi pinjaman dari pokok hingga pelunasan</h1><p class="lead">Panduan ini menjelaskan apa yang dihitung oleh kalkulator, mengapa porsi bunga lebih besar di awal, dan bagian mana dari penawaran kredit yang tidak dapat diwakili oleh satu rumus.</p><p class="meta">Ditulis dan diperbarui oleh Amir Muntaha • 16 Agustus 2026 • sekitar 12 menit membaca</p></div></header>
+            <article class="article"><div class="container content-width">
+                <div class="callout warning"><p><strong>Penting:</strong> materi ini bersifat edukatif. Contoh bukan penawaran kredit dan kalkulator bukan nasihat keuangan. Gunakan simulasi untuk memahami struktur dasar, lalu periksa dokumen resmi pemberi pinjaman.</p></div>
+
+                <h2>1. Apa yang dimaksud dengan amortisasi?</h2>
+                <p>Amortisasi adalah proses mengurangi saldo pinjaman melalui serangkaian pembayaran. Pada pinjaman dengan angsuran tetap, jumlah pembayaran berkala dapat terlihat sama, tetapi susunan di dalamnya berubah. Setiap pembayaran dibagi menjadi bunga dan pelunasan pokok. Bunga adalah biaya penggunaan dana; pokok adalah bagian yang benar-benar mengurangi saldo utang.</p>
+                <p>Perubahan komposisi terjadi karena bunga periode berikutnya dihitung dari saldo yang masih tersisa. Pada awal pinjaman, saldo masih mendekati jumlah awal sehingga biaya bunga lebih besar. Setelah sebagian pokok dibayar, saldo mengecil, bunga periode berikutnya ikut menurun, dan lebih banyak dari angsuran tetap dapat dialokasikan untuk pokok.</p>
+
+                <h2>2. Input yang diperlukan</h2>
+                <p>Model dasar dalam kalkulator menggunakan tiga variabel:</p>
+                <ul>
+                    <li><strong>Pokok pinjaman (P):</strong> jumlah dana yang dibiayai, bukan selalu harga barang. Untuk KPR, pokok biasanya adalah harga setelah dikurangi uang muka, lalu dapat berubah jika ada biaya yang dibiayai.</li>
+                    <li><strong>Suku bunga tahunan:</strong> angka persentase yang diubah menjadi tingkat bulanan untuk simulasi. Kalkulator membagi persentase tahunan nominal dengan 12.</li>
+                    <li><strong>Jumlah periode (n):</strong> total pembayaran bulanan. Lima tahun berarti 60 periode jika pembayaran dilakukan setiap bulan.</li>
+                </ul>
+                <p>Kalkulator juga memiliki mode target angsuran. Dalam mode ini, angsuran bulanan, tingkat bunga, dan jangka waktu dipakai untuk memperkirakan pokok yang dapat didukung. Hasil tersebut bukan batas persetujuan kredit karena pemberi pinjaman juga mempertimbangkan pendapatan, rasio utang, jaminan, biaya, dan kebijakan risiko.</p>
+
+                <h2>3. Rumus angsuran tetap</h2>
+                <p>Untuk tingkat bunga bulanan <em>r</em>, jumlah periode <em>n</em>, dan pokok <em>P</em>, angsuran bulanan <em>A</em> dihitung dengan rumus anuitas:</p>
+                <div class="callout"><p><strong>A = P × r × (1 + r)<sup>n</sup> ÷ ((1 + r)<sup>n</sup> − 1)</strong></p></div>
+                <p>Jika tingkat bunga adalah nol, rumus disederhanakan menjadi pokok dibagi jumlah periode. Pemisahan kondisi nol penting dalam kode karena rumus anuitas normal akan membagi dengan nol.</p>
+                <p>Untuk mencari pokok dari target angsuran, bentuk nilai kini anuitas digunakan:</p>
+                <div class="callout"><p><strong>P = A × (1 − (1 + r)<sup>−n</sup>) ÷ r</strong></p></div>
+
+                <h2>4. Contoh perhitungan sederhana</h2>
+                <p>Anggap sebuah ilustrasi pinjaman Rp120.000.000, bunga nominal 6% per tahun, dan jangka waktu 60 bulan. Tingkat bunga bulanan adalah 0,06 ÷ 12 = 0,005 atau 0,5%.</p>
+                <p>Dengan rumus angsuran tetap, pembayaran bulanan kira-kira Rp2.319.936. Nilai yang tampil dapat berbeda sedikit karena pembulatan. Pada bulan pertama:</p>
+                <ul>
+                    <li>Bunga = Rp120.000.000 × 0,5% = Rp600.000.</li>
+                    <li>Pokok = Rp2.319.936 − Rp600.000 = sekitar Rp1.719.936.</li>
+                    <li>Saldo akhir = Rp120.000.000 − Rp1.719.936 = sekitar Rp118.280.064.</li>
+                </ul>
+                <p>Pada bulan kedua, bunga dihitung dari saldo baru, bukan dari Rp120.000.000 lagi. Karena saldo sudah lebih kecil, bunga bulan kedua sedikit di bawah Rp600.000 dan porsi pokok sedikit lebih tinggi. Pola ini berlanjut sampai saldo mendekati nol.</p>
+
+                <h2>5. Cara membaca jadwal amortisasi</h2>
+                <div class="table-wrap"><table><thead><tr><th>Kolom</th><th>Makna</th><th>Hal yang perlu diperhatikan</th></tr></thead><tbody>
+                    <tr><td>Saldo awal</td><td>Sisa pokok sebelum pembayaran periode itu</td><td>Menjadi dasar perhitungan bunga periode</td></tr>
+                    <tr><td>Bunga</td><td>Saldo awal dikalikan tingkat bunga bulanan</td><td>Tinggi di awal dan menurun pada model tetap</td></tr>
+                    <tr><td>Pokok</td><td>Angsuran dikurangi bunga</td><td>Bagian yang mengurangi saldo</td></tr>
+                    <tr><td>Total pembayaran</td><td>Pokok ditambah bunga untuk periode tersebut</td><td>Umumnya tetap dalam model ini</td></tr>
+                    <tr><td>Saldo akhir</td><td>Saldo awal dikurangi pokok</td><td>Menjadi saldo awal periode berikutnya</td></tr>
+                </tbody></table></div>
+                <p>Grafik pokok versus bunga membantu melihat perubahan komposisi, tetapi tabel memberi rincian yang diperlukan untuk memeriksa satu periode tertentu. Ekspor CSV berguna untuk membuat catatan, membandingkan skenario, atau melakukan analisis lanjutan di spreadsheet.</p>
+
+                <h2>6. Mengapa hasil bank bisa berbeda?</h2>
+                <p>Satu formula tidak dapat mewakili seluruh kontrak kredit. Perbedaan dapat muncul karena:</p>
+                <ul>
+                    <li>bunga efektif, flat, atau metode lain didefinisikan berbeda;</li>
+                    <li>periode bunga tetap kemudian berubah menjadi bunga mengambang;</li>
+                    <li>biaya administrasi, provisi, appraisal, notaris, asuransi, pajak, atau biaya rekening;</li>
+                    <li>tanggal pencairan dan tanggal pembayaran menciptakan periode pertama yang tidak tepat satu bulan;</li>
+                    <li>aturan pembulatan dilakukan per baris, bukan hanya pada tampilan;</li>
+                    <li>pelunasan dipercepat, pembayaran tambahan, denda, atau restrukturisasi;</li>
+                    <li>jumlah biaya tertentu dimasukkan kembali ke pokok pembiayaan.</li>
+                </ul>
+                <p>Karena itu, bandingkan bukan hanya “angsuran per bulan”, tetapi juga pokok yang benar-benar diterima, total biaya awal, total pembayaran, kapan bunga dapat berubah, serta konsekuensi keterlambatan atau pelunasan dini.</p>
+
+                <h2>7. Tiga skenario yang layak dibandingkan</h2>
+                <h3>Jangka waktu lebih pendek</h3>
+                <p>Angsuran bulanan biasanya naik, tetapi jumlah periode berkurang dan total bunga cenderung lebih rendah. Skenario ini perlu diuji terhadap arus kas—angsuran yang terlalu agresif dapat mengurangi ruang untuk kebutuhan rutin atau dana darurat.</p>
+                <h3>Uang muka lebih besar</h3>
+                <p>Pokok yang dibiayai lebih kecil, sehingga angsuran dan total bunga dapat menurun. Namun, menggunakan seluruh likuiditas untuk uang muka juga memiliki risiko. Simulasi hanya menunjukkan dampak matematis terhadap pinjaman, bukan kondisi keuangan keseluruhan.</p>
+                <h3>Suku bunga berubah</h3>
+                <p>Coba beberapa tingkat bunga untuk memahami sensitivitas. Perbedaan satu atau dua poin persentase dapat terasa kecil, tetapi dampaknya terakumulasi selama banyak periode. Untuk produk berbunga mengambang, skenario optimistis dan konservatif lebih informatif daripada satu angka tunggal.</p>
+
+                <h2>8. Cara menggunakan kalkulator secara bertanggung jawab</h2>
+                <ol>
+                    <li>Masukkan pokok setelah uang muka, bukan harga aset penuh, kecuali seluruh harga memang dibiayai.</li>
+                    <li>Gunakan tingkat bunga yang sesuai dengan metode produk. Jika informasi hanya menyebut “mulai dari”, jangan menganggapnya berlaku sepanjang jangka waktu.</li>
+                    <li>Bandingkan minimal tiga jangka waktu dan catat angsuran serta total bunga.</li>
+                    <li>Tambahkan biaya di luar kalkulator secara terpisah.</li>
+                    <li>Simpan CSV sebagai simulasi bertanggal agar tidak tertukar dengan penawaran resmi.</li>
+                    <li>Periksa seluruh hasil dengan tabel simulasi dari pemberi pinjaman sebelum menandatangani perjanjian.</li>
+                </ol>
+
+                <h2>9. Batasan implementasi kalkulator</h2>
+                <p>Kalkulator memakai angsuran bulanan tetap dan tingkat bulanan yang berasal dari bunga tahunan dibagi 12. Ia tidak memodelkan bunga harian, perubahan suku bunga di tengah jadwal, pembayaran tambahan, grace period, keterlambatan, pajak, atau biaya kontrak. Saldo akhir yang sangat kecil dinolkan untuk mencegah sisa pecahan akibat aritmetika floating-point.</p>
+                <p>Semua perhitungan utama dilakukan di browser. Input tidak perlu berisi nama, nomor rekening, nomor kontrak, atau informasi pribadi apa pun. Gunakan angka ilustrasi bila Anda membagikan tangkapan layar atau laporan bug.</p>
+
+                <h2>10. Kesimpulan</h2>
+                <p>Jadwal amortisasi menjawab dua pertanyaan berbeda: berapa yang harus dibayar setiap bulan dan ke mana pembayaran itu dialokasikan. Memahami keduanya membantu membandingkan jangka waktu, tingkat bunga, dan jumlah pinjaman dengan lebih teliti. Kalkulator dapat mempercepat simulasi, tetapi keputusan akhir harus menggunakan kontrak, rincian biaya, dan informasi resmi yang berlaku pada produk Anda.</p>
+                <div class="hero-actions"><a class="button button-primary" href="https://amirmuntaha.github.io/loan_calculator/">Gunakan kalkulator bebas iklan</a><a class="button button-secondary" href="/contact/">Laporkan koreksi</a></div>
+            </div></article>
+        </div>
+
+        <div data-lang="en" hidden>
+            <header class="article-header"><div class="container content-width"><nav class="breadcrumbs"><a href="/">Home</a> / <a href="/#guides">Guides</a> / Loan Amortization</nav><p class="eyebrow">Finance fundamentals</p><h1>Understanding loan amortization from principal to payoff</h1><p class="lead">This guide explains what the calculator computes, why interest takes a larger share early on, and which parts of a real credit offer cannot be represented by one formula.</p><p class="meta">Written and updated by Amir Muntaha • August 16, 2026 • approximately 11 minutes</p></div></header>
+            <article class="article"><div class="container content-width">
+                <div class="callout warning"><p><strong>Important:</strong> this is educational material. Examples are not credit offers, and the calculator is not financial advice. Use it to understand the basic structure, then verify official lender documents.</p></div>
+                <h2>1. What is amortization?</h2><p>Amortization is the gradual reduction of a loan balance through scheduled payments. With a fixed-payment loan, the total periodic payment may stay the same while its composition changes. Each payment contains interest—the cost of using funds—and principal, which actually reduces the debt.</p><p>Interest for the next period is based on the remaining balance. Early in the loan, that balance is close to the original amount, so interest consumes more of the payment. As principal falls, interest also falls and more of the same payment can reduce principal.</p>
+                <h2>2. Required inputs</h2><ul><li><strong>Principal (P):</strong> the financed amount, which may differ from the asset price after a down payment and financed fees.</li><li><strong>Annual interest rate:</strong> converted to a monthly rate by dividing the nominal annual percentage by 12.</li><li><strong>Number of periods (n):</strong> the total monthly payments; five years means 60 periods.</li></ul><p>The target-payment mode reverses the calculation to estimate principal from payment, rate, and term. It is not an approval amount because lenders also consider income, debt ratios, collateral, fees, and risk policies.</p>
+                <h2>3. Fixed-payment formula</h2><p>For monthly rate <em>r</em>, periods <em>n</em>, and principal <em>P</em>, payment <em>A</em> is:</p><div class="callout"><p><strong>A = P × r × (1 + r)<sup>n</sup> ÷ ((1 + r)<sup>n</sup> − 1)</strong></p></div><p>At a zero rate, payment is simply principal divided by periods. To estimate principal from a target payment, the present-value form is:</p><div class="callout"><p><strong>P = A × (1 − (1 + r)<sup>−n</sup>) ÷ r</strong></p></div>
+                <h2>4. Worked example</h2><p>Consider an illustrative Rp120,000,000 loan at a nominal 6% annual rate for 60 months. The monthly rate is 0.06 ÷ 12 = 0.005. The fixed payment is approximately Rp2,319,936.</p><ul><li>First-month interest = Rp120,000,000 × 0.5% = Rp600,000.</li><li>First-month principal = Rp2,319,936 − Rp600,000 ≈ Rp1,719,936.</li><li>Ending balance ≈ Rp118,280,064.</li></ul><p>Second-month interest uses the new balance, so it is slightly below Rp600,000 and principal is slightly higher.</p>
+                <h2>5. Reading the schedule</h2><div class="table-wrap"><table><thead><tr><th>Column</th><th>Meaning</th><th>What to check</th></tr></thead><tbody><tr><td>Beginning balance</td><td>Principal before the payment</td><td>Basis for period interest</td></tr><tr><td>Interest</td><td>Beginning balance times monthly rate</td><td>Usually falls over time</td></tr><tr><td>Principal</td><td>Payment minus interest</td><td>Actually reduces debt</td></tr><tr><td>Total payment</td><td>Principal plus interest</td><td>Fixed in this model</td></tr><tr><td>Ending balance</td><td>Beginning balance minus principal</td><td>Next period's opening balance</td></tr></tbody></table></div>
+                <h2>6. Why a lender's result may differ</h2><p>A single formula cannot represent an entire contract. Differences may come from flat versus effective rate definitions, later floating rates, administration and insurance costs, irregular first periods, row-by-row rounding, early payment rules, penalties, or fees added to principal. Compare the amount actually received, initial costs, total payments, rate-change rules, and early-payoff conditions—not only the monthly figure.</p>
+                <h2>7. Useful comparisons</h2><h3>Shorter term</h3><p>Payments normally rise while total interest tends to fall. Test whether the higher commitment leaves room for routine needs and emergencies.</p><h3>Larger down payment</h3><p>Financed principal, payment, and interest may fall, but using all available cash can create a different risk that the calculator does not evaluate.</p><h3>Rate changes</h3><p>Test several rates to understand sensitivity. For floating-rate products, optimistic and conservative scenarios are more useful than one number.</p>
+                <h2>8. Responsible use</h2><ol><li>Enter financed principal after the down payment.</li><li>Use a rate that matches the product's method and period.</li><li>Compare at least three terms.</li><li>Add excluded fees separately.</li><li>Label exported CSV files as dated simulations.</li><li>Verify against the lender's official schedule before signing.</li></ol>
+                <h2>9. Calculator limits</h2><p>The calculator assumes fixed monthly payments and a monthly rate derived from annual rate divided by 12. It does not model daily interest, mid-schedule rate changes, extra payments, grace periods, late payments, taxes, or contract fees. Very small ending balances are set to zero to avoid floating-point remnants.</p><p>Core calculations run in the browser. Inputs do not need names, account numbers, contract numbers, or any personal data.</p>
+                <h2>10. Conclusion</h2><p>An amortization schedule answers both how much is paid and where each payment goes. Understanding both makes comparisons more meaningful. A calculator speeds up scenarios, but the final decision must rely on the applicable contract, cost breakdown, and official product information.</p>
+                <div class="hero-actions"><a class="button button-primary" href="https://amirmuntaha.github.io/loan_calculator/">Use the ad-free calculator</a><a class="button button-secondary" href="/contact/">Report a correction</a></div>
+            </div></article>
+        </div>
+    </main>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div><h2>Amir Muntaha Web Tools</h2><p data-lang="id">Panduan ini mendokumentasikan asumsi kalkulator yang dapat digunakan secara terpisah.</p><p data-lang="en" hidden>This guide documents the assumptions behind the separately available calculator.</p></div><div><h3>Explore</h3><ul><li><a href="/">Home</a></li><li><a href="/#projects">Tools</a></li><li><a href="/#guides">Guides</a></li></ul></div><div><h3>Information</h3><ul><li><a href="/about/">About</a></li><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/contact/">Contact</a></li></ul></div></div><div class="footer-note">© 2026 Amir Muntaha.</div></div></footer>
+    <script src="/assets/site.js" defer></script>
+</body>
+</html>
